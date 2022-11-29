@@ -63,7 +63,7 @@ namespace ProjectD.Controllers
         {
             var model = new LoginViewModel()
             {
-
+                ReturnUrl = returnUrl
             };
 
             return View(model);

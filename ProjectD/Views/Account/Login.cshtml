@@ -10,37 +10,32 @@
             <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                 <div class="card bg-navy text-white" style="border-radius: 1rem;">
                     <div class="card-body p-5 text-center">
-
                         <div class="mb-md-5 mt-md-4 pb-5">
-
                             <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                             <p class="text-white-50 mb-5">Please enter your login and password!</p>
                             <form id="loginForm" method="post">
+                                <input type="hidden" asp-for="ReturnUrl" />
                                 <div class="form-outline form-white mb-4">
-                                    <input asp-for="Email" id="typeEmailX" class="form-control form-control-lg" />
-                                    <label asp-for="Email" class="form-label" for="typeEmailX">Email</label>
-                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                    <input asp-for="@Model.Email" id="typeEmailX" class="form-control form-control-lg" />
+                                    <label asp-for="@Model.Email" class="form-label" for="typeEmailX">Email</label>
+                                    <span asp-validation-for="@Model.Email" class="text-danger"></span>
                                 </div>
-
 
                                 <div class="form-outline mb-4">
-                                    <input asp-for="Password" type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                    <label asp-for="Password" class="form-label" for="typePasswordX">Password</label>
+                                    <input asp-for="@Model.Password" type="password" id="typePasswordX" class="form-control form-control-lg" />                               
+                                    <label asp-for="@Model.Password" class="form-label" for="typePasswordX"></label>
                                 </div>
 
-
-                                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
-
+                                @*<p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>*@
+                                <div asp-validation-summary="All" class="text-danger"></div>
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                             </form>
                         </div>
-
                         <div>
                             <p class="mb-0">
                                 Don't have an account? <a asp-controller="Account" asp-action="Register" class="text-white-50 fw-bold">Sign Up</a>
                             </p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -49,7 +44,11 @@
 </section>
 
 <style>
-    footer{
+    footer {
         display: none;
     }
 </style>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

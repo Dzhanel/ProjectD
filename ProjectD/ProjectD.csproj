@@ -16,4 +16,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\Map\" />
+    <Folder Include="Contracts\" />
+  </ItemGroup>
+
 </Project>
