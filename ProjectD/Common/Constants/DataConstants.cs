@@ -34,6 +34,8 @@
         {
             public const int MaxNameLength = 30;
             public const int MinNameLength = 2;
+            public const int MaxPasswordLength = 60;
+            public const int MinPasswordLength = 6;
         }
 
         public static class Room

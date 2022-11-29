@@ -6,7 +6,6 @@ namespace ProjectD.Data.Entities
 {
     public class User : IdentityUser
     {
-
         [Required]
         [StringLength(MaxNameLength, MinimumLength = MinNameLength)]
         public string FirstName { get; set; } = null!;
