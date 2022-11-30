@@ -2,6 +2,5 @@
 {
     public interface IMapService
     {
-        Task<IEnumarable<MapModel>>
     }
 }
