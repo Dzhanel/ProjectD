@@ -1,3 +1,5 @@
+@import url("color-presets.css");
+
 html {
   font-size: 14px;
 }
@@ -17,20 +19,9 @@ body {
     background-color: #031b28;
 }
 
-.bg-darknavy {
-    background-color: #031b28;
-}
-
-.bg-navy {
-    background-color: #083248;
-}
-
-
-
 .navbar-logo {
     width:50px;
 }
-
 .footer {
     border-top: 2px solid #e89c31 !important;
 }
