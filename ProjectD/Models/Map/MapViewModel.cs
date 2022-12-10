@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ProjectD.Data.Entities;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using static ProjectD.Common.Constants.DataConstants.Map;
 
 namespace ProjectD.Models.Map
@@ -27,5 +29,7 @@ namespace ProjectD.Models.Map
         [Range(MaxLength, MinLength)]
         public double LengthKm { get; init; }
         public TimeSpan BestTime { get; init; }
+
+        public ICollection<Event> Events { get; set; } = new List<Event>();
     }
 }
