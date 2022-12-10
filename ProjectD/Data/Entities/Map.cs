@@ -16,7 +16,7 @@ namespace ProjectD.Data.Entities
         public double StartLongitude { get; set; }
         
         [Range(MinLatitude, MaxLatitude)]
-        public double SartLatitude { get; set; }
+        public double StartLatitude { get; set; }
 
         [Range(MinLongitude, MaxLongitude)]
         public double FinishLongitude { get; set; }

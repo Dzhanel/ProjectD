@@ -3,7 +3,7 @@ using static ProjectD.Common.Constants.DataConstants.Map;
 
 namespace ProjectD.Models.Map
 {
-    public class MapServiceModel
+    public class MapViewModel
     {
         public Guid Id { get; init; }
 
@@ -15,7 +15,7 @@ namespace ProjectD.Models.Map
         public double StartLongitude { get; init; }
 
         [Range(MinLatitude, MaxLatitude)]
-        public double SartLatitude { get; init; }
+        public double StartLatitude { get; init; }
 
         [Range(MinLongitude, MaxLongitude)]
         public double FinishLongitude { get; init; }

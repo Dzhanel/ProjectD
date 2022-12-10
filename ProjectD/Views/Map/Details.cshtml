@@ -1,0 +1,8 @@
+﻿@model MapViewModel
+
+<h1 class="gold-1">@Model.Name</h1>
+
+<section class="map-details">
+                 <iframe src="https://www.google.com/maps/embed/v1/directions?origin=@Model.StartLongitude,@Model.StartLatitude&destination=@Model.FinishLongitude,@Model.FinishLatitude&zoom=12&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+                </iframe>
+</section>

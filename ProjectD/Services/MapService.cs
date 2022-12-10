@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ProjectD.Contracts;
 using ProjectD.Data.Common;
 using ProjectD.Data.Entities;
@@ -9,33 +10,28 @@ namespace ProjectD.Services
     public class MapService : IMapService
     {
         private readonly IRepository repo;
-        
-        private readonly ILogger logger;
-
+        private readonly IMapper mapper;
         public MapService(
             IRepository _repo,
-            ILogger<MapService> _logger)
+            IMapper mapper)
         {
-            repo = _repo;
-            logger = _logger;
+            this.repo = _repo;
+            this.mapper = mapper;
         }
 
 
-        public async Task<IEnumerable<MapServiceModel>> AllMaps()
+        public async Task<IEnumerable<MapViewModel>> AllMaps()
         {
             return await repo.AllReadonly<Map>()
-                .Select(p => new MapServiceModel()
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    StartLongitude = p.StartLongitude,
-                    SartLatitude = p.SartLatitude,
-                    FinishLatitude = p.FinishLatitude,
-                    FinishLongitude = p.FinishLongitude,
-                    LengthKm = p.LengthKm,
-                    BestTime = p.BestTime
-                }).ToListAsync();
+                .Select(m => mapper.Map<MapViewModel>(m))
+                .ToListAsync();
+        }
 
+        public async Task<MapViewModel> GetMapById(Guid mapId)
+        {
+            var map = await repo.GetByIdAsync<Map>(mapId);
+
+            return this.mapper.Map<MapViewModel>(map);
         }
     }
 }

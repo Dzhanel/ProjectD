@@ -4,6 +4,8 @@ namespace ProjectD.Contracts
 {
     public interface IMapService
     {
-        Task<IEnumerable<MapServiceModel>> AllMaps();
+        Task<IEnumerable<MapViewModel>> AllMaps();
+
+        Task<MapViewModel> GetMapById(Guid id);
     }
 }

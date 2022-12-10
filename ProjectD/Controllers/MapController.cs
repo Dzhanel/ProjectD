@@ -20,5 +20,19 @@ namespace ProjectD.Controllers
             ViewData["Title"] = "Maps";
             return View(maps);
         }
+
+        public async Task<IActionResult> Details(string id)
+        {
+            Guid guid = Guid.Parse(id);
+            var map = await mapService.GetMapById(guid);
+            ViewData["Title"] = $"Details - {map.Name}";
+            
+            return View(map);
+        }
+
+        public async Task<IActionResult> Edit()
+        {
+            return View();
+        }
     }
 }

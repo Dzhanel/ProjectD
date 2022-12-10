@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MapServiceModel>
+﻿@model IEnumerable<MapViewModel>
 
 <h1 class="gold-2 ">@ViewData["Title"]</h1>
 
@@ -7,13 +7,14 @@
     {
         <div class="col-sm-6 col-md-4 mt-5">
             <div class="card text-center bg-light-navy">
-                <iframe src="https://www.google.com/maps/embed/v1/directions?origin=@map.StartLongitude,@map.SartLatitude&destination=@map.FinishLongitude,@map.FinishLatitude&zoom=12&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
+                <iframe src="https://www.google.com/maps/embed/v1/directions?origin=@map.StartLongitude,@map.StartLatitude&destination=@map.FinishLongitude,@map.FinishLatitude&zoom=12&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8">
                 </iframe>
+                <input type="hidden" value="@map.Id">
                 <div class="card-body">
                     <h5 class="card-title text-light">@map.Name</h5>
                     <hr>
                     <p>
-                        <a class="btn btn-primary" role="button">
+                        <a asp-controller="Map" asp-action="Details" asp-route-id="@map.Id" class="btn btn-info" role="button">
                             <i class="fas fa-map-signs"></i> Details
                         </a>
                     </p>
@@ -21,10 +22,10 @@
                 <div class="card-footer text-muted">
                     <div class="row">
                         <div class="col">
-                            <a><i class="btn fas fa-pencil-alt gold-1"></i></a>
+                            <a><i class="btn fas fa-pencil-alt btn-info"></i></a>
                         </div>
                         <div class="col">
-                            <a><i class="btn fas fa-trash red"></i></a>
+                            <a><i class="btn fas fa-trash btn-danger"></i></a>
                         </div>
                     </div>
                 </div>

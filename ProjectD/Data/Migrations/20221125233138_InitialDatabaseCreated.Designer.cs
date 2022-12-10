@@ -257,7 +257,7 @@ namespace ProjectD.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<double>("SartLatitude")
+                    b.Property<double>("StartLatitude")
                         .HasColumnType("float");
 
                     b.Property<double>("StartLongitude")

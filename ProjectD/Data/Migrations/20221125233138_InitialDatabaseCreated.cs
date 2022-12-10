@@ -44,7 +44,7 @@ namespace ProjectD.Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     StartLongitude = table.Column<double>(type: "float", nullable: false),
-                    SartLatitude = table.Column<double>(type: "float", nullable: false),
+                    StartLatitude = table.Column<double>(type: "float", nullable: false),
                     FinishLongitude = table.Column<double>(type: "float", nullable: false),
                     FinishLatitude = table.Column<double>(type: "float", nullable: false),
                     LengthKm = table.Column<double>(type: "float", nullable: false),
