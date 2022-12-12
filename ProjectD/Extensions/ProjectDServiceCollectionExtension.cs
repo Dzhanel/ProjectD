@@ -13,6 +13,7 @@ namespace ProjectD.Extensions
 
             services.AddScoped<IRepository, Repository>();
             services.AddScoped<IMapService, MapService>();
+            services.AddScoped<IEventService, EventService>();
             return services;
         }
 

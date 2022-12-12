@@ -31,7 +31,5 @@ namespace ProjectD.Data.Entities
         public Announcment Announcment { get; set; } = null!;
 
         public ICollection<Racer> Racers { get; set; } = new List<Racer>();
-
-
     }
 }

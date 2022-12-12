@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EventViewModel>
+
+@{
+    
+}
+
+<section class="mt-5">
+    @foreach (var carEvent in Model)
+    {
+        <div class="card m-auto justify-content-center text-white text-center bg-light-navy mb-3">
+            <div class="card-header">
+                   @carEvent.EventDate
+            </div>
+            <div class="card-header bg-navy">
+                <div data-event-date="@carEvent.EventDate" id="@("flipdown-" + @carEvent.Id)" class="flipdown m-auto">
+                </div>
+                
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@carEvent.Title - @carEvent.Type</h5>
+                <p class="card-text">@carEvent.Description</p>
+                <a asp-controller="Event" asp-action="Details" asp-route-id="@carEvent.Id" class="btn btn-info" role="button">
+                    <i class="fas fa-map-signs"></i> Event Details
+                </a>
+                <a asp-controller="Map" asp-action="Details" asp-route-id="@carEvent.Map.Id" class="btn btn-info" role="button">
+                    <i class="fas fa-map"></i> Map: @carEvent.Map.Name
+                </a>
+            </div>
+        </div>
+
+    }
+</section>
+
+@section Scripts {
+    <script src="~/lib/flipdown/dist/flipdown.js"></script>
+    <script src="~/js/timer.js"></script>
+
+}

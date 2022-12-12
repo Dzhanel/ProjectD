@@ -19,7 +19,6 @@ namespace ProjectD.Services
             this.mapper = mapper;
         }
 
-
         public async Task<IEnumerable<MapViewModel>> AllMaps()
         {
             return await repo.AllReadonly<Map>()

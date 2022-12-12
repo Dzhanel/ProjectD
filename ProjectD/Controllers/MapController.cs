@@ -14,6 +14,7 @@ namespace ProjectD.Controllers
             mapService = _mapService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var maps = await mapService.AllMaps();
@@ -21,6 +22,7 @@ namespace ProjectD.Controllers
             return View(maps);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Details(string id)
         {
             Guid guid = Guid.Parse(id);
@@ -30,6 +32,7 @@ namespace ProjectD.Controllers
             return View(map);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Edit()
         {
             return View();
