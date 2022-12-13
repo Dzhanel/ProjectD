@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectD.Contracts;
 using ProjectD.Data.Common;
 using ProjectD.Data.Entities;
+using ProjectD.Models.Event;
 using ProjectD.Models.Map;
 
 namespace ProjectD.Services
@@ -30,7 +31,15 @@ namespace ProjectD.Services
         {
             var map = await repo.GetByIdAsync<Map>(mapId);
 
-            return this.mapper.Map<MapViewModel>(map);
+            var model = mapper.Map<MapViewModel>(map);
+
+            model.Events = (await repo.AllReadonly<Event>()
+                    .Where(e => e.MapId == map.Id)
+                    .ToListAsync())
+                    .Select(e => mapper.Map<EventViewModel>(e))
+                    .ToList();
+
+            return model;
         }
     }
 }

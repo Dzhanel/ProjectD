@@ -19,7 +19,7 @@ namespace ProjectD.Models.Event
         public string Description { get; init; } = null!;
 
         [Required]
-        public DateTime EventDate { get; init; }
+        public string EventDate { get; init; } = null!;
         [StringLength(MaxCondition)]
         public string Conditions { get; init; } = null!;
 

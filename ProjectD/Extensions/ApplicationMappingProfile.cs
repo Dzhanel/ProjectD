@@ -10,7 +10,10 @@ namespace ProjectD.Extensions
         public ApplicationMappingProfile()
         {
             CreateMap<Map, MapViewModel>();
-            CreateMap<Event, EventViewModel>();
+            CreateMap<Event, EventViewModel>()
+                .ForMember(dest => dest.EventDate, opt => opt.MapFrom(src => src.EventDate.ToString("dd.MM.yyyy HH:mm")));
+                
+
         }
 
 

@@ -30,6 +30,6 @@ namespace ProjectD.Models.Map
         public double LengthKm { get; init; }
         public TimeSpan BestTime { get; init; }
 
-        public ICollection<EventViewModel> Events { get; init; } = new List<EventViewModel>();
+        public ICollection<EventViewModel> Events { get; set; } = new List<EventViewModel>();
     }
 }
