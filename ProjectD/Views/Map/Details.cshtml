@@ -31,7 +31,7 @@
                                     <h6>Events - @Model.Events.Count()</h6>
                                     @foreach (var mapEvent in @Model.Events)
                                     {
-                                        <p class="text-muted">@mapEvent.Title</p>
+                                        <a asp-controller="Event" asp-action="Details" asp-route-id="@mapEvent.Id" class="text-muted">@mapEvent.Title</a>
                                     }
                                 </div>
                             </div>

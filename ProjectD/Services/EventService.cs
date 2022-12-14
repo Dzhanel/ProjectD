@@ -4,6 +4,7 @@ using ProjectD.Contracts;
 using ProjectD.Data.Common;
 using ProjectD.Data.Entities;
 using ProjectD.Models.Event;
+using ProjectD.Models.Racer;
 
 namespace ProjectD.Services
 {
@@ -22,15 +23,30 @@ namespace ProjectD.Services
         {
             return await repo.AllReadonly<Event>()
                 .Include(e => e.Map)
+                .Include(r => r.Racers)
                 .Select(e => mapper.Map<EventViewModel>(e))
                 .ToListAsync();
         }
 
         public async Task<EventViewModel> GetEventById(Guid guid)
         {
-            var _event = await repo.GetByIdAsync<Event>(guid);
+            var carEvent = await repo.GetByIdAsync<Event>(guid);
+            
+            carEvent.Map = await repo.GetByIdAsync<Map>(carEvent.MapId);
+            
 
-            return this.mapper.Map<EventViewModel>(_event);
+            var eventRacers = await repo.AllReadonly<Racer>()
+                .Where(r => 
+                    r.Events.Any(e => e.Id == carEvent.Id))
+                .Include(r => r.User)
+                .ToListAsync();
+
+            var model = mapper.Map<EventViewModel>(carEvent);
+
+            model.Racers = eventRacers
+                .Select(e => mapper.Map<RacerViewModel>(e)).ToList();
+
+            return model;
 
         }
     }

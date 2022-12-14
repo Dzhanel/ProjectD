@@ -1,3 +1,4 @@
 ﻿@model EventViewModel
 
 <h1 class="gold-1 mb-5 text-center">@Model.Id</h1>
+<h1 class="gold-1 mb-5 text-center">@Model.Racers.FirstOrDefault()?.User.FirstName</h1>

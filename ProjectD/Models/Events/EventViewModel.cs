@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using ProjectD.Data.Entities;
 using ProjectD.Models.Map;
+using ProjectD.Models.Racer;
 using static ProjectD.Common.Constants.DataConstants.Event;
 
 namespace ProjectD.Models.Event
@@ -30,7 +31,7 @@ namespace ProjectD.Models.Event
         public Guid AnnouncmentId { get; init; }
         public Announcment Announcment { get; init; } = null!;
 
-        public ICollection<Racer> Racers { get; init; } = new List<Racer>();
+        public ICollection<RacerViewModel> Racers { get; set; } = new List<RacerViewModel>();
 
 
     }

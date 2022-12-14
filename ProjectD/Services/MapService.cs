@@ -12,12 +12,15 @@ namespace ProjectD.Services
     {
         private readonly IRepository repo;
         private readonly IMapper mapper;
+        private readonly IEventService eventService;
         public MapService(
             IRepository _repo,
-            IMapper mapper)
+            IMapper _mapper,
+            IEventService _eventService)
         {
             this.repo = _repo;
-            this.mapper = mapper;
+            this.mapper = _mapper;
+            this.eventService = _eventService;
         }
 
         public async Task<IEnumerable<MapViewModel>> AllMaps()
@@ -37,7 +40,7 @@ namespace ProjectD.Services
                     .Where(e => e.MapId == map.Id)
                     .ToListAsync())
                     .Select(e => mapper.Map<EventViewModel>(e))
-                    .ToList();
+                    .ToList();               
 
             return model;
         }
