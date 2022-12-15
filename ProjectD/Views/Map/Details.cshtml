@@ -29,10 +29,13 @@
                             <div class="row pt-1 justify-content-center">
                                 <div class="col-6 mb-3">
                                     <h6>Events - @Model.Events.Count()</h6>
+                                    <div class="d-flex flex-column justify-content-center align-items-center map-events">
+
                                     @foreach (var mapEvent in @Model.Events)
                                     {
                                         <a asp-controller="Event" asp-action="Details" asp-route-id="@mapEvent.Id" class="text-muted">@mapEvent.Title</a>
                                     }
+                                    </div>
                                 </div>
                             </div>
                             <hr class="mt-0 mb-4">

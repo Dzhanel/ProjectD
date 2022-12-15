@@ -13,6 +13,13 @@
     margin: 0;
 }
 
+.map-events a {
+    text-decoration: none;
+}
+
+.map-events a:hover {
+    text-decoration: underline;
+}
 footer {
     position: absolute;
     bottom: 0;

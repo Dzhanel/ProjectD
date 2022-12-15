@@ -34,8 +34,8 @@ namespace ProjectD.Services
             
             carEvent.Map = await repo.GetByIdAsync<Map>(carEvent.MapId);
             
-
-            var eventRacers = await repo.AllReadonly<Racer>()
+            
+            var racers = await repo.AllReadonly<Racer>()
                 .Where(r => 
                     r.Events.Any(e => e.Id == carEvent.Id))
                 .Include(r => r.User)
@@ -43,7 +43,7 @@ namespace ProjectD.Services
 
             var model = mapper.Map<EventViewModel>(carEvent);
 
-            model.Racers = eventRacers
+            model.Racers = racers
                 .Select(e => mapper.Map<RacerViewModel>(e)).ToList();
 
             return model;

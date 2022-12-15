@@ -26,7 +26,7 @@ namespace ProjectD.Models.Event
 
         [Required]
         public Guid MapId { get; init; }
-        public MapViewModel Map { get; init; } = null!;
+        public MapViewModel Map { get; set; } = null!;
 
         public Guid AnnouncmentId { get; init; }
         public Announcment Announcment { get; init; } = null!;

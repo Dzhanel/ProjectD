@@ -12,15 +12,12 @@ namespace ProjectD.Services
     {
         private readonly IRepository repo;
         private readonly IMapper mapper;
-        private readonly IEventService eventService;
         public MapService(
             IRepository _repo,
-            IMapper _mapper,
-            IEventService _eventService)
+            IMapper _mapper)
         {
             this.repo = _repo;
             this.mapper = _mapper;
-            this.eventService = _eventService;
         }
 
         public async Task<IEnumerable<MapViewModel>> AllMaps()
